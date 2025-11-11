@@ -10,7 +10,7 @@ public interface FileService {
 
 	void savePrivateKey(PrivateKey privateKey) throws IOException;
 
-	void saveCriptonMsg(String msg) throws IOException;
+	void saveCriptonMsg(String fileName, String textoCifrado) throws IOException;
 
-	String lerAquivos(String file) throws IOException;
+	String lerArquivos(String file) throws IOException;
 }

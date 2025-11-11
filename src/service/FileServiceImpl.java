@@ -15,6 +15,8 @@ public class FileServiceImpl implements FileService {
 
 	static File dir;
 
+	public FileServiceImpl() {}
+
 	@Override
 	public void savePublicKey(PublicKey publicKey) throws IOException {
 		String encoded = Base64.getEncoder().encodeToString(publicKey.getEncoded());
@@ -28,13 +30,12 @@ public class FileServiceImpl implements FileService {
 	}
 
 	@Override
-	public void saveCriptonMsg(String msg) throws IOException {
-		String encoded = Base64.getEncoder().encodeToString(msg.getBytes());
-		saveKeyToFile("CriptonMsg", encoded);
+	public void saveCriptonMsg(String fileName, String textoCifrado) throws IOException {
+		saveKeyToFile(fileName, textoCifrado);
 	}
 
 	@Override
-	public String lerAquivos(String file) throws IOException {
+	public String lerArquivos(String file) throws IOException {
 		return new String(Files.readAllBytes(Paths.get(getFileDir() + "/" + file))).trim();
 	}
 
